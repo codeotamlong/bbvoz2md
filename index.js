@@ -32,8 +32,8 @@ function convert() {
     .replace(/\[img\]((?:.|\n)+?)\[\/img\]/gmi,'![$1]($1)')
     .replace(/\[url\]((?:.|\n)+?)\[\/url\]/gmi, '<$1>') //url NO placeholer
     .replace(/\[url=(.+?)\]((?:.|\n)+?)\[\/url\]/gmi,'[$2]($1)') // url HAVE placeholder
-    .replace(/\[code\]((?:.|\n)+?)\[\/code\]/gmi, '```$1```')
-    .replace(/\[code=(.+?)\]((?:.|\n)+?)\[\/code\]/gmi, '```$1$2```')
+    .replace(/\[code\]((?:.|\n)+?)\[\/code\]/gmi, '\n```$1```')
+    .replace(/\[code=(.+?)\]((?:.|\n)+?)\[\/code\]/gmi, '\n```$1$2```')
     .replace(/\[php\](.*?)\[\/php\]/gmi, '`$1`')
     .replace(/\[php\]((?:.|\n)+?)\[\/php\]/gmi, function (match, p1, offset, string) {return p1.replace(/^/gmi, '    ');})
     .replace(/\[pawn\](.*?)\[\/pawn\]/gmi, '`$1`')
