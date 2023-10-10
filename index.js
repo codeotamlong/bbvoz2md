@@ -38,8 +38,10 @@ function convert() {
     .replace(/\[php\]((?:.|\n)+?)\[\/php\]/gmi, function (match, p1, offset, string) {return p1.replace(/^/gmi, '    ');})
     .replace(/\[pawn\](.*?)\[\/pawn\]/gmi, '`$1`')
     .replace(/\[pawn\]((?:.|\n)+?)\[\/pawn\]/gmi, function (match, p1, offset, string) {return p1.replace(/^/gmi, '    ');})
-    .replace(/\[spoiler=(.+?)\]/gmi,'> $1\n') // spoiler - header
+    .replace(/\[spoiler=(.+?)\]/gmi,'> $1\n') // spoiler - header WITH desc
+    .replace(/\[spoiler\]/gmi,'') // spoiler - header NO desc
     .replace(/\[\/spoiler\]/gmi,'') // spoiler - footer
+    .replace(/\[attach type="full" alt="((?:.|\n)+?).png"\]((?:.|\n)+?)\[\/attach\]/gmi, "![](https://voz.vn/attachments/$1-png.$2)") // attach image
     ;
   
   //post processing for tf2toolbox BBCode
